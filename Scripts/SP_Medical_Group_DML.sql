@@ -52,7 +52,13 @@ VALUES (4,'435225435','94839859000', '1134567654', 'Rua Estado de Israel 240, Sã
 	  ,(10,'545662668','13771913039','','R Sao Antonio, 232 - Vila Universal, Barueri - SP, 06407-140','05/03/2018')
 
 INSERT INTO CONSULTAS
-VALUES ()
+VALUES (7, 3, '20/01/2019 15:00:00','Consulta', 'Realizada')
+	  ,(2, 2, '2018/01/06 10:00:00','Consulta', 'Cancelada')
+	  ,(3, 2, '2019/02/07 11:00:00','Consulta', 'Realizada')
+	  ,(2, 2, '2018/02/06 10:00:00','Consulta', 'Realizada')
+	  ,(4, 1, '2019/02/07 11:00:00','Consulta', 'Cancelada')
+	  ,(7, 3, '2019/02/08 15:00:00','Consulta', 'Agendada')
+	  ,(4, 1, '2019/02/09 11:00:00','Consulta', 'Agendada')
 
 EXEC USUARIO_VALIDACAO
  'ricardo.lemos@spmedicalgroup.com','12345',2
@@ -61,3 +67,7 @@ EXEC CPF_VALIDACAO
 '39235256801'
 
 SELECT * FROM PRONTUARIOS
+
+select * from MEDICOS
+
+select * from USUARIOS
