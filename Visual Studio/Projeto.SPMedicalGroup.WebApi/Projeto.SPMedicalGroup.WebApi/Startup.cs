@@ -35,10 +35,10 @@ namespace Projeto.SPMedicalGroup.WebApi
                         .AllowCredentials());
             });
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Info { Title = "SPMedicalGroup API", Version = "v1" });
-            });
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.SwaggerDoc("v1", new Info { Title = "SPMedicalGroup API", Version = "v1" });
+            //});
 
             services.AddAuthentication(options =>
             {

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Projeto.SPMedicalGroup.WebApi.Domains;
 using Projeto.SPMedicalGroup.WebApi.Interfaces;
@@ -27,7 +23,7 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
         {
             try
             {
-                return Ok();
+                return Ok(UsuarioRepository.ListarMedicos());
             }
             catch (Exception ex)
             {
@@ -55,6 +51,7 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
         {
             try
             {
+                UsuarioRepository.Cadastrar(usuario);
                 return Ok();
             }
             catch (Exception ex)

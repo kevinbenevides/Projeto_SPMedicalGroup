@@ -11,7 +11,10 @@ namespace Projeto.SPMedicalGroup.WebApi.Repositorios
     {
         public void Cadastrar(Usuarios usuario)
         {
-            throw new NotImplementedException();
+            using (SPMedicalGroupContext ctx = new SPMedicalGroupContext())
+            {
+                ctx.Usuarios.Add(usuario);
+            }
         }
 
         public List<Usuarios> Listar()
@@ -24,7 +27,10 @@ namespace Projeto.SPMedicalGroup.WebApi.Repositorios
 
         public List<Medicos> ListarMedicos()
         {
-            throw new NotImplementedException();
+            using (SPMedicalGroupContext ctx = new SPMedicalGroupContext())
+            {
+               return ctx.Medicos.ToList();
+            }
         }
     }
 }
