@@ -12,6 +12,7 @@ namespace Projeto.SPMedicalGroup.WebApi.Interfaces
 
         void Cadastrar(Usuarios usuario);
 
-        List<Medicos> ListarMedicos();
+        Usuarios BuscarporEmailSenha(string email, string senha);
+        //List<Usuarios> ListarMedicos();
     }
 }

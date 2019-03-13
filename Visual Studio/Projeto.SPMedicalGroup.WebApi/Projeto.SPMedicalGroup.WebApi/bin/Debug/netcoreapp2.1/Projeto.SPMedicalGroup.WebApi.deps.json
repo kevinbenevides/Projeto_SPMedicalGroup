@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "1953d4f4b08b51bc927a62b218dff098a11a89b3"
+    "signature": "9f1db71dc4fcff2d55a2fec48e9317be754e42bb"
   },
   "compilationOptions": {
     "defines": [
@@ -28,7 +28,9 @@
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
           "Microsoft.NETCore.App": "2.1.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.1",
-          "Swashbuckle.AspNetCore.Swagger": "2.1.0"
+          "Swashbuckle.AspNetCore.Swagger": "2.1.0",
+          "Swashbuckle.AspNetCore.SwaggerGen": "1.1.0",
+          "Swashbuckle.AspNetCore.SwaggerUI": "2.1.0"
         },
         "runtime": {
           "Projeto.SPMedicalGroup.WebApi.dll": {}
@@ -392,6 +394,43 @@
         },
         "compile": {
           "lib/netstandard1.6/Swashbuckle.AspNetCore.Swagger.dll": {}
+        }
+      },
+      "Swashbuckle.AspNetCore.SwaggerGen/1.1.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.ApiExplorer": "2.1.1",
+          "Microsoft.AspNetCore.Mvc.Core": "2.1.1",
+          "Microsoft.AspNetCore.Mvc.DataAnnotations": "2.1.1",
+          "NETStandard.Library": "2.0.3",
+          "Swashbuckle.AspNetCore.Swagger": "2.1.0",
+          "System.Xml.XPath": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerGen.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerGen.dll": {}
+        }
+      },
+      "Swashbuckle.AspNetCore.SwaggerUI/2.1.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Routing": "2.1.1",
+          "Microsoft.AspNetCore.StaticFiles": "2.1.1",
+          "Microsoft.Extensions.FileProviders.Embedded": "2.1.1",
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerUI.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
         }
       },
       "System.Composition/1.0.31": {
@@ -3618,6 +3657,20 @@
       "sha512": "sha512-oiN5T1v6VIeqg2GOHYkqq0YaV+UnozuCIjpq179f+N50xlltxt4xu9h4Bqqhz8MEU/8RkM3FRF6yoy9Mt6SjjQ==",
       "path": "swashbuckle.aspnetcore.swagger/2.1.0",
       "hashPath": "swashbuckle.aspnetcore.swagger.2.1.0.nupkg.sha512"
+    },
+    "Swashbuckle.AspNetCore.SwaggerGen/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nMesy3r0ZUkFQl2pIbl5GxBjXD3jhmPUl7pT6i72Zi0rImMyHLmNicZeHP9qOLuI1cilj1MgLcraKsEgM1h2BA==",
+      "path": "swashbuckle.aspnetcore.swaggergen/1.1.0",
+      "hashPath": "swashbuckle.aspnetcore.swaggergen.1.1.0.nupkg.sha512"
+    },
+    "Swashbuckle.AspNetCore.SwaggerUI/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FkHpOJZjtZdUMycJsSyiGzSW4Osp7WpdOTD+AXvUeSDTc1WCuJ5aNRmkCNg9K/bgZCDHbF4mip4VSaZZottTgg==",
+      "path": "swashbuckle.aspnetcore.swaggerui/2.1.0",
+      "hashPath": "swashbuckle.aspnetcore.swaggerui.2.1.0.nupkg.sha512"
     },
     "System.Composition/1.0.31": {
       "type": "package",

@@ -71,3 +71,5 @@ SELECT * FROM PRONTUARIOS
 select * from MEDICOS
 
 select * from USUARIOS
+
+select * from CONSULTAS
