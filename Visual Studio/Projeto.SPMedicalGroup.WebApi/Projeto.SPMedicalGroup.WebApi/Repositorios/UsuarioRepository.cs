@@ -1,4 +1,5 @@
-﻿using Projeto.SPMedicalGroup.WebApi.Domains;
+﻿using Microsoft.EntityFrameworkCore;
+using Projeto.SPMedicalGroup.WebApi.Domains;
 using Projeto.SPMedicalGroup.WebApi.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace Projeto.SPMedicalGroup.WebApi.Repositorios
         {
             using (SPMedicalGroupContext ctx = new SPMedicalGroupContext())
             {
-                return ctx.Usuarios.ToList().Find(i => i.Email == email && i.Senha == senha);
+                return ctx.Usuarios.Include(c => c.IdTipoUsuarioNavigation).FirstOrDefault(x => x.Email == email && x.Senha == senha);
             }
         }
 

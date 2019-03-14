@@ -15,5 +15,7 @@ namespace Projeto.SPMedicalGroup.WebApi.Interfaces
         List<Consultas> BuscarPorIdMedico(int idmedico);
 
         List<Consultas> BuscarPorIdProntuario(int idprontuario);
+
+        List<Consultas> Listar();
     }
 }

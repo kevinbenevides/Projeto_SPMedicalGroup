@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Projeto.SPMedicalGroup.WebApi.Domains;
 using Projeto.SPMedicalGroup.WebApi.Interfaces;
@@ -33,6 +34,7 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
         //    }
         //}
 
+        [Authorize(Roles = "1")]
         [HttpGet]
         public IActionResult Listar()
         {
@@ -47,6 +49,7 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
             }
         }
 
+        [Authorize(Roles = "1")]
         [HttpPost]
         public IActionResult Cadastrar(Usuarios usuario)
         {

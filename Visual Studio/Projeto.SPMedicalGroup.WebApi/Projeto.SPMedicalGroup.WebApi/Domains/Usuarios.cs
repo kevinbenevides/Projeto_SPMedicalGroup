@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Projeto.SPMedicalGroup.WebApi.Domains
 {
@@ -12,8 +13,16 @@ namespace Projeto.SPMedicalGroup.WebApi.Domains
         }
 
         public int Id { get; set; }
+
+        [Required(ErrorMessage ="Informe um Email")]
+        [DataType(DataType.EmailAddress, ErrorMessage ="Email inválido")]
         public string Email { get; set; }
+
+        [Required(ErrorMessage = "Informe uma Senha")]
+        [StringLength(6, ErrorMessage ="Senha Inválida")]
         public string Senha { get; set; }
+
+        [Required(ErrorMessage ="Informe um Tipo de Usuário")]
         public int IdTipoUsuario { get; set; }
 
         public TipoUsuarios IdTipoUsuarioNavigation { get; set; }

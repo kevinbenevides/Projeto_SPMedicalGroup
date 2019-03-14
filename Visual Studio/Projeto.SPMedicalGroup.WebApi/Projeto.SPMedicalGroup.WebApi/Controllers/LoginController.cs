@@ -14,7 +14,7 @@ using Projeto.SPMedicalGroup.WebApi.ViewModels;
 
 namespace Projeto.SPMedicalGroup.WebApi.Controllers
 {
-    [Produces("")]
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class LoginController : ControllerBase

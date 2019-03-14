@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Projeto.SPMedicalGroup.WebApi.Domains;
@@ -22,6 +23,8 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
             ConsultaRepository = new ConsultaRepository();
         }
 
+        [Authorize (Roles= "1")]
+
         [HttpPost]
         public IActionResult Cadastrar(Consultas consulta)
         {
@@ -36,7 +39,8 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
                 return BadRequest();
             }
         }
-
+        
+        [Authorize (Roles="1,2")]
         [HttpPut("{Id}")]
         public IActionResult Atualizar(int id, Consultas consulta)
         {
@@ -51,8 +55,25 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
                 return BadRequest();
             }
         }
+        
+        [Authorize (Roles ="1")]
+        [HttpGet]
+        public IActionResult Listar()
+        {
+            try
+            {
+                return Ok(ConsultaRepository.Listar());
+            }
+            catch (Exception ex)
+            {
 
-        [HttpGet("{IdMedico}")]
+                return BadRequest();
+            }
+        }
+
+
+        [Authorize (Roles ="1,2")]
+        [HttpGet("ConsultasMedico/{IdMedico}")]
         public IActionResult BuscarPorIdMedico(int idmedico)
         {
             try
@@ -67,7 +88,8 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
         }
 
 
-        [HttpGet("prontuario/{IdProntuario}")]
+        [Authorize]
+        [HttpGet("ConsultasProntuario/{IdProntuario}")]
         public IActionResult BuscarPorIdProntuario(int idprontuario)
         {
             try
