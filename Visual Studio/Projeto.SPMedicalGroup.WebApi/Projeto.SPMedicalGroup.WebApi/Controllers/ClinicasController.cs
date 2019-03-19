@@ -22,7 +22,7 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
         {
             ClinicaRepository = new ClinicaRepository();
         }
-        [Authorize(Roles="1")]
+        [Authorize(Roles="Administrador")]
         [HttpPost]
         public IActionResult Cadastrar(Clinicas clinica)
         {

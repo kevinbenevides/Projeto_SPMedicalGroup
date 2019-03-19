@@ -34,7 +34,7 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
         //    }
         //}
 
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "Administrador")]
         [HttpGet]
         public IActionResult Listar()
         {
@@ -49,7 +49,7 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
             }
         }
 
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         public IActionResult Cadastrar(Usuarios usuario)
         {

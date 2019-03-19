@@ -22,7 +22,7 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
             MedicoRepository = new MedicoRepository();
         }
 
-        [Authorize(Roles ="1")]
+        [Authorize(Roles ="Administrador")]
         [HttpGet]
         public IActionResult Listar()
         {

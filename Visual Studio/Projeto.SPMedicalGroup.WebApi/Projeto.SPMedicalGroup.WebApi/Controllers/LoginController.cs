@@ -47,7 +47,7 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
                 {
                     new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email),
                     new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.Id.ToString()),
-                    new Claim(ClaimTypes.Role, usuarioBuscado.IdTipoUsuario.ToString()),
+                    new Claim(ClaimTypes.Role, usuarioBuscado.IdTipoUsuarioNavigation.Nome.ToString()),
                     new Claim("teste", "birulaibe")
 
                 };

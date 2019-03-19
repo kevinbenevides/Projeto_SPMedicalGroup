@@ -48,6 +48,22 @@ namespace Projeto.SPMedicalGroup.WebApi.Repositorios
             }
         }
 
+        public List<Consultas> BuscarConsultasMedico(int idmedico)
+        {
+            using (SPMedicalGroupContext ctx = new SPMedicalGroupContext())
+            {
+                return ctx.Consultas.Where(i => i.IdMedico == idmedico).ToList();
+            }
+        }
+
+        public List<Consultas> BuscarConsultasProntuario(int idprontuario)
+        {
+            using (SPMedicalGroupContext ctx = new SPMedicalGroupContext())
+            {
+                return ctx.Consultas.Where(i => i.IdProntuario == idprontuario).ToList();
+            }
+        }
+
         public List<Consultas> BuscarPorIdMedico(int idmedico)
         {
             using (SPMedicalGroupContext ctx = new SPMedicalGroupContext())

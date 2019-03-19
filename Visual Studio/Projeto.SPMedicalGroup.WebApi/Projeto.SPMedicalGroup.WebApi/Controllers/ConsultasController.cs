@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -23,7 +25,7 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
             ConsultaRepository = new ConsultaRepository();
         }
 
-        [Authorize (Roles= "1")]
+        [Authorize (Roles= "Administrador")]
 
         [HttpPost]
         public IActionResult Cadastrar(Consultas consulta)
@@ -40,7 +42,7 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
             }
         }
         
-        [Authorize (Roles="1,2")]
+        [Authorize (Roles="Administrador, Médico")]
         [HttpPut("{Id}")]
         public IActionResult Atualizar(int id, Consultas consulta)
         {
@@ -56,28 +58,30 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
             }
         }
         
-        [Authorize (Roles ="1")]
-        [HttpGet]
-        public IActionResult Listar()
-        {
-            try
-            {
-                return Ok(ConsultaRepository.Listar());
-            }
-            catch (Exception ex)
-            {
+        //[Authorize (Roles ="Administrador")]
+        //[HttpGet]
+        //public IActionResult Listar()
+        //{
+        //    try
+        //    {
+        //        return Ok(ConsultaRepository.Listar());
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                return BadRequest();
-            }
-        }
+        //        return BadRequest();
+        //    }
+        //}
 
 
-        [Authorize (Roles ="1,2")]
+        [Authorize (Roles ="Administrador")]
         [HttpGet("ConsultasMedico/{IdMedico}")]
         public IActionResult BuscarPorIdMedico(int idmedico)
         {
             try
             {
+                
+                // contexto
                 return Ok(ConsultaRepository.BuscarPorIdMedico(idmedico));
             }
             catch (Exception ex)
@@ -87,17 +91,80 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
             }
         }
 
+        //[Authorize(Roles = "Médico")]
+        //[HttpGet("ConsultasMedico")]
+        //public IActionResult BuscarConsultasMedico()
+        //{
+        //    try
+        //    {
+        //        int idmedico = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+        //        return Ok(ConsultaRepository.BuscarConsultasMedico(idmedico));
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-        [Authorize]
+        //        return BadRequest();
+        //    }
+        //}
+
+
+        [Authorize(Roles = "Admistrador")]
         [HttpGet("ConsultasProntuario/{IdProntuario}")]
         public IActionResult BuscarPorIdProntuario(int idprontuario)
         {
             try
-            {
+            {     
                 return Ok(ConsultaRepository.BuscarPorIdProntuario(idprontuario));
             }
             catch (Exception ex)
             {
+                return BadRequest();
+            }
+        }
+
+        //[Authorize]
+        //[HttpGet("ConsultasProntuario")]
+        //public IActionResult BuscarConsultasProntuario()
+        //{
+        //    try
+        //    {
+        //        int idprontuario = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+        //        return Ok(ConsultaRepository.BuscarConsultasProntuario(idprontuario));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return BadRequest();
+        //    }
+        //}
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult ListarConsultas()
+        {
+            try
+            {
+                string usuariologado = Convert.ToString(HttpContext.User.Claims.First(c => c.Type == ClaimTypes.Role));
+
+                
+                if (usuariologado == "Administrador")
+                {
+                    return Ok(ConsultaRepository.Listar());
+
+                }else if (usuariologado == "Médico")
+                {
+                    int idmedico = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+                    return Ok(ConsultaRepository.BuscarConsultasMedico(idmedico));
+
+                }else if(usuariologado == "Paciente")
+                {
+                    int idprontuario = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+                    return Ok(ConsultaRepository.BuscarConsultasProntuario(idprontuario));
+                }
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+
                 return BadRequest();
             }
         }
