@@ -1,3 +1,8 @@
+--Script de Inserção de dados
+
+--Definindo Usuárop para SP_MEDICAL_GROUP
+USE SP_MEDICAL_GROUP
+
 INSERT INTO TIPO_USUARIOS
 VALUES ('Administrador')
 	  ,('Médico')
@@ -60,11 +65,18 @@ VALUES (7, 3, '20/01/2019 15:00:00','Consulta', 'Realizada')
 	  ,(7, 3, '2019/02/08 15:00:00','Consulta', 'Agendada')
 	  ,(4, 1, '2019/02/09 11:00:00','Consulta', 'Agendada')
 
+-------------------------------------------------------------------
+
+--Validação utilizando as procedures
+
+--Validação de Usuário
 EXEC USUARIO_VALIDACAO
  'ricardo.lemos@spmedicalgroup.com','12345',2
 
+--Validação de CPF
 EXEC CPF_VALIDACAO
 '39235256801'
+
 
 SELECT * FROM PRONTUARIOS
 

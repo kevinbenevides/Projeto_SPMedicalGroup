@@ -1,0 +1,198 @@
+{
+	"variables": [],
+	"info": {
+		"name": "SpMedicalGroup",
+		"_postman_id": "b07af6c0-9037-fff1-5899-3ac5d6cd5375",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"description": "",
+			"item": [
+				{
+					"name": "ListarUsuarios",
+					"request": {
+						"url": "http://localhost:5000/api/usuarios",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar_Usuarios",
+					"request": {
+						"url": "http://localhost:5000/api/usuarios",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"email\": \"kevinhoadmin@gmail.com\",\n        \"senha\": \"3393\",\n        \"idTipoUsuario\": 1,\n        \"medicos\": [],\n        \"prontuarios\": []\n    }"
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Consultas",
+			"description": "",
+			"item": [
+				{
+					"name": "CadastrarConsultas",
+					"request": {
+						"url": "http://localhost:5000/api/consultas",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"IdProntuario\": 3,\n  \"DataHora\": \"12/03/2019 18:00:00\",\n  \"IdMedico\": 3\n}"
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "AlterarConsultas",
+					"request": {
+						"url": "http://localhost:5000/api/consultas/19",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"IdProntuario\": 2,\n  \"IdMedico\": 1,\n  \"DataHora\": \"12/03/2019 15:00:00\",\n  \"Status\": \"Cancelado\"\n}"
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "ListarConsultasPeloMedico",
+					"request": {
+						"url": "http://localhost:5000/api/consultas/ConsultasMedico/2",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlbGVuYS5zb3V6YUBzcG1lZGljYWxncm91cC5jb20uYnIiLCJqdGkiOiIzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMiIsInRlc3RlIjoiYmlydWxhaWJlIiwiZXhwIjoxNTUyNTcwODE4LCJpc3MiOiJQcm9qZXRvLlNQTWVkaWNhbEdyb3VwLldlYkFwaSIsImF1ZCI6IlByb2pldG8uU1BNZWRpY2FsR3JvdXAuV2ViQXBpIn0.ACFMV6fmMLqn-1xvUyQJLLbZT3Z-GnsNKG2Y6IRKYTk"
+							}
+						],
+						"body": {},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "ListarConcultasPeloProntuario",
+					"request": {
+						"url": "http://localhost:5000/api/consultas/ConsultasProntuario/4",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtldmluYmVuZXZpZGVzQGdtYWlsLmNvbSIsImp0aSI6IjExIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMyIsInRlc3RlIjoiYmlydWxhaWJlIiwiZXhwIjoxNTUyNTcwMjkyLCJpc3MiOiJQcm9qZXRvLlNQTWVkaWNhbEdyb3VwLldlYkFwaSIsImF1ZCI6IlByb2pldG8uU1BNZWRpY2FsR3JvdXAuV2ViQXBpIn0.mrSIZvShIT2QPw6eIApv8xnJH_Q9K7_uRMSzidxq0Y0"
+							}
+						],
+						"body": {},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "ListarTodasConsultas",
+					"request": {
+						"url": "http://localhost:5000/api/consultas",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtldmluaG9hZG1pbkBnbWFpbC5jb20iLCJqdGkiOiIxMiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IjEiLCJ0ZXN0ZSI6ImJpcnVsYWliZSIsImV4cCI6MTU1MjU3MTA2MCwiaXNzIjoiUHJvamV0by5TUE1lZGljYWxHcm91cC5XZWJBcGkiLCJhdWQiOiJQcm9qZXRvLlNQTWVkaWNhbEdyb3VwLldlYkFwaSJ9.NKWuzAQZ3rlJItMrp4JXogtgBFY-JUkojRWoacgr4lI"
+							}
+						],
+						"body": {},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Medicos",
+			"description": "",
+			"item": [
+				{
+					"name": "ListarMedicos",
+					"request": {
+						"url": "http://localhost:5000/api/medicos",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clinicas",
+			"description": "",
+			"item": [
+				{
+					"name": "ListarClinicas",
+					"request": {
+						"url": "http://localhost:5000/api/clinicas",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"description": "",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"url": "http://localhost:5000/api/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"Email\":\"kevinhoadmin@gmail.com\",\n\"Senha\":\"3393\"\n}"
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
