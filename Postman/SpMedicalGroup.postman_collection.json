@@ -174,21 +174,62 @@
 			"description": "",
 			"item": [
 				{
-					"name": "Login",
+					"name": "Login_Admin",
 					"request": {
 						"url": "http://localhost:5000/api/login",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"description": ""
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"Email\":\"kevinhoadmin@gmail.com\",\n\"Senha\":\"3393\"\n}"
+							"raw": "{\n\t\"Email\":\"kevinbenevides@gmail.com\",\n\t\"Senha\":\"200210\"\n}"
 						},
 						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Login_Medico",
+					"request": {
+						"url": "http://localhost:5000/api/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Email\":\"helena.souza@spmedicalgroup.com.br\",\n\t\"Senha\":\"123456\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Login_Paciente",
+					"request": {
+						"url": "http://localhost:5000/api/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Email\":\"alexandre@gmail.com\",\n\t\"Senha\":\"123123\"\n}"
+						},
+						"description": ""
 					},
 					"response": []
 				}

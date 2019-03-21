@@ -19,6 +19,7 @@ VALUES ('ricardo.lemos@spmedicalgroup.com.br','132456',2)
 	  ,('joao@hotmail.com','432143',3)
 	  ,('bruno@gmail.com','987626',3)
 	  ,('mariana@outlook.com','145678',3)
+	  ,('kevinbenevides@gmail.com','200210', 1)
 	  
 INSERT INTO AREAS_ATUACOES
 VALUES ('Acupuntura')
