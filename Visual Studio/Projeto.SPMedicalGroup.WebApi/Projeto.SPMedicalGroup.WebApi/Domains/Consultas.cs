@@ -18,6 +18,7 @@ namespace Projeto.SPMedicalGroup.WebApi.Domains
         [DataType(DataType.DateTime, ErrorMessage ="Data inválida")]
         public DateTime DataHora { get; set; }
 
+        [Required(ErrorMessage ="Informe uma Descrição")]
         public string Descricao { get; set; }
         public string Status { get; set; }
 

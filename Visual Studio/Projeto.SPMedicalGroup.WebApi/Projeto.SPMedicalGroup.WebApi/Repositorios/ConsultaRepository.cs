@@ -36,11 +36,15 @@ namespace Projeto.SPMedicalGroup.WebApi.Repositorios
             using (SPMedicalGroupContext ctx = new SPMedicalGroupContext())
             {
                 Consultas AtualizacaoConsulta = ctx.Consultas.Find(id);
-
+                
+                
                 AtualizacaoConsulta.IdProntuario = consulta.IdProntuario;
                 AtualizacaoConsulta.IdMedico = consulta.IdMedico;
                 AtualizacaoConsulta.DataHora = consulta.DataHora;
-                AtualizacaoConsulta.Descricao = consulta.Descricao;
+                if (consulta.Descricao != null)
+                {
+                    AtualizacaoConsulta.Descricao = consulta.Descricao;
+                }
                 AtualizacaoConsulta.Status = consulta.Status;
 
                 ctx.Consultas.Update(consulta);

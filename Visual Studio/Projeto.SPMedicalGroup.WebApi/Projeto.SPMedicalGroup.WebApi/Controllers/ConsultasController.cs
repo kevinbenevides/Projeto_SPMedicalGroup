@@ -48,8 +48,13 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
         {
             try
             {
-                ConsultaRepository.Atualizar(id, consulta);
-                return Ok();
+                if (id == null)
+                {
+                    BadRequest();
+                }
+                    ConsultaRepository.Atualizar(id, consulta);
+                    return Ok();
+
             }
             catch (Exception ex)
             {
@@ -108,7 +113,7 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
         //}
 
 
-        [Authorize(Roles = "Admistrador")]
+        [Authorize(Roles = "Administrador")]
         [HttpGet("ConsultasProntuario/{IdProntuario}")]
         public IActionResult BuscarPorIdProntuario(int idprontuario)
         {
@@ -143,7 +148,7 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
         {
             try
             {
-                string usuariologado = Convert.ToString(HttpContext.User.Claims.First(c => c.Type == ClaimTypes.Role));
+                string usuariologado =HttpContext.User.Claims.First(c => c.Type == "Role").Value;
 
                 
                 if (usuariologado == "Administrador")
