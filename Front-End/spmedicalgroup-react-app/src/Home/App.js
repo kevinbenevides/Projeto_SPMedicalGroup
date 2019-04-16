@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Link} from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -10,11 +10,14 @@ class App extends Component {
           <nav>
             <img src="#"/>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Consultas</a></li>
-              <li><a href="#">Login</a></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/login">Login</Link></li>
+              <li><a href="#">Clinicas</a></li>
             </ul>
           </nav>
+          <div>
+
+          </div>
         </div>
       </main>
     );
