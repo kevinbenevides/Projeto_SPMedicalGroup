@@ -31,7 +31,7 @@ class Login extends Component{
             if(data.status === 200){
                 console.log(data);
                 localStorage.setItem("usuario-Spmedgroup", data.data.token);
-                this.props.history.push("/");
+                this.props.history.push("/homeadmin");
             }else{
                 alert('Email ou senha inválido')
             }

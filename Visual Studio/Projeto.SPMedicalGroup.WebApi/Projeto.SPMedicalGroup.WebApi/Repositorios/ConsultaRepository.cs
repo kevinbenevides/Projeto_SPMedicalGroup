@@ -18,6 +18,7 @@ namespace Projeto.SPMedicalGroup.WebApi.Repositorios
                 DadosAgendados.IdProntuario = consulta.IdProntuario;
                 DadosAgendados.DataHora = consulta.DataHora;
                 DadosAgendados.IdMedico = consulta.IdMedico;
+                DadosAgendados.Descricao = consulta.Descricao;
 
                 if(DadosAgendados.Status == null)
                 {

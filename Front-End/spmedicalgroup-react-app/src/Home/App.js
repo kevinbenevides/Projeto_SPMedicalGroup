@@ -12,7 +12,6 @@ class App extends Component {
             <ul>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/login">Login</Link></li>
-              <li><a href="#">Clinicas</a></li>
             </ul>
           </nav>
           <div>

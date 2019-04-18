@@ -4,8 +4,47 @@ import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-d
 import './index.css';
 import App from './Home/App';
 import Login from './Login/Login'
+import HomeAdmin from './Home/HomeAdmin'
+import ConsultasAdmin from './Consultas/ConsultasAdmin'
+import { UsuarioAutenticado } from './services/auth'
 import * as serviceWorker from './serviceWorker';
+import {parseJwt} from './services/auth';
 
+const PermissaoAdmin = ({ component: Component }) => (
+    <Route
+      render = { props => UsuarioAutenticado() && parseJwt().Role == "Administrador" ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to={{ pathname: "/login" }} />
+        )
+      }
+    />
+  );
+
+  const PermissaoComum = ({ component: Component }) => (
+    <Route
+      render={props =>
+        UsuarioAutenticado() && parseJwt().Role == "Paciente" ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to={{ pathname: "/login" }} />
+        )
+      }
+    />
+  );
+
+    
+  const PermissaoMedico = ({ component: Component }) => (
+    <Route
+      render={props =>
+        UsuarioAutenticado() && parseJwt().Role == "Médico" ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to={{ pathname: "/login" }} />
+        )
+      }
+    />
+  );
 
 const routing = (
     <Router>
@@ -13,6 +52,8 @@ const routing = (
         <Switch>
             <Route exact path ="/" component={App}/>
             <Route path="/login" component={Login}/>
+            <PermissaoAdmin path="/consultasadmin" component={ConsultasAdmin}/>
+            <PermissaoAdmin path="/homeadmin" component={HomeAdmin}/>
         </Switch>
     </div>
 </Router>
