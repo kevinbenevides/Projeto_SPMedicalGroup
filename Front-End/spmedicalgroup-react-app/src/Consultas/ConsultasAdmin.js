@@ -56,6 +56,22 @@ class ConsultasAdmin extends Component {
         .catch(erro => {console.log(erro)})
     }
 
+    listaconsultas(event){
+        event.preventDefault();
+
+        var bearer = 'Bearer ' + localStorage.getItem("usuario-Spmedgroup");
+
+        Axios.get("http://localhost:5000/api/consultas", {headers : {'Authorization' : bearer}})
+
+        .then(resposta => resposta.json())
+        .then(data => this.setState({lista : data}))
+        .catch((erro) => console.log(erro))
+        
+    }
+
+    componentDidMount(){
+        this.listaconsultas();
+    }
     render() {
         return (
             <main>
