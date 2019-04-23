@@ -42,7 +42,7 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
             }
         }
         
-        [Authorize (Roles="Administrador, Médico")]
+        [Authorize (Roles="Administrador, Medico")]
         [HttpPut("{Id}")]
         public IActionResult Atualizar(int id, Consultas consulta)
         {
@@ -155,7 +155,7 @@ namespace Projeto.SPMedicalGroup.WebApi.Controllers
                 {
                     return Ok(ConsultaRepository.Listar());
 
-                }else if (usuariologado == "Médico")
+                }else if (usuariologado == "Medico")
                 {
                     int idmedico = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
                     return Ok(ConsultaRepository.BuscarConsultasMedico(idmedico));

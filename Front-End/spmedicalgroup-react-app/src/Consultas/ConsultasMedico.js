@@ -1,27 +1,37 @@
 import React, {Component} from 'react'
+import Axios from 'axios'
 
-class Consultas extends Component{
+
+class ConsultasMedico extends Component{
     constructor(){
         super();
         this.state={
-            lista: []
+            lista:[],
+            idprontuario :"",
+            idmedico : "",
+            dataconsulta : "",
+            descricao : "",
+            status: "",
+            Prontuario: [],
+            Medico: []
         }
     }
 
-    listarconsultas(event){
-        event.preventDefault()
+    listarconsultas(){
 
-        var bearer = 'Bearer' + localStorage.getItem("usuario-Spmedgroup");
+        var bearer = 'Bearer ' + localStorage.getItem("usuario-Spmedgroup");
 
         Axios.get("http://localhost:5000/api/consultas", {headers: {'Authorization' : bearer}})
 
-        .then(resposta => resposta.json())
-        .then(data => this.setState({lista : data}))
-        .catch((erro) => console.log(erro))
+        
+        .then((response) => {
+            response = this.setState({lista: response.data})
+        })
+        .catch((erro) => console.log(erro))  
     }
     
     componentDidMount(){
-        this.listaconsultas();
+        this.listarconsultas();
     }
 
     render(){
@@ -37,6 +47,7 @@ class Consultas extends Component{
                                     <th>Id Medico</th>
                                     <th>Data</th>
                                     <th>Descricao</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
 
@@ -46,10 +57,11 @@ class Consultas extends Component{
                                         return(
                                             <tr key={consulta.id}>
                                                 <td>{consulta.id}</td>
-                                                <td>{consulta.idprontuario}</td>
-                                                <td>{consulta.idmedico}</td>
-                                                <td>{consulta.data}</td>
+                                                <td>{consulta.idProntuario}</td>
+                                                <td>{consulta.idMedico}</td>
+                                                <td>{consulta.dataHora}</td>
                                                 <td>{consulta.descricao}</td>
+                                                <td>{consulta.status}</td>
                                             </tr>
                                         )
                                     })
@@ -63,4 +75,4 @@ class Consultas extends Component{
     }
 }
 
-export default Consultas
+export default ConsultasMedico

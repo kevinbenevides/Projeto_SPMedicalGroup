@@ -5,8 +5,11 @@ USE SP_MEDICAL_GROUP
 
 INSERT INTO TIPO_USUARIOS
 VALUES ('Administrador')
-	  ,('Médico')
+	  ,('Medico')
 	  ,('Paciente')
+
+
+update TIPO_USUARIOS set NOME = 'Medico' where ID = 2
 
 INSERT INTO USUARIOS
 VALUES ('ricardo.lemos@spmedicalgroup.com.br','132456',2)
@@ -85,4 +88,7 @@ select * from MEDICOS
 
 select * from USUARIOS
 
+select * from TIPO_USUARIOS
+
 select * from CONSULTAS
+

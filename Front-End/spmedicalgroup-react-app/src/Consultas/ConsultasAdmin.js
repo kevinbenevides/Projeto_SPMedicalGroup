@@ -9,7 +9,10 @@ class ConsultasAdmin extends Component {
             idprontuario :"",
             idmedico : "",
             dataconsulta : "",
-            descricao : ""
+            descricao : "",
+            status: "",
+            Prontuario: [],
+            Medico: []
         }
 
         this.cadastroConsultas = this.cadastroConsultas.bind(this);
@@ -42,10 +45,10 @@ class ConsultasAdmin extends Component {
         var bearer = 'Bearer ' + localStorage.getItem("usuario-Spmedgroup");
 
         Axios.post("http://localhost:5000/api/consultas", {
-            idprontuario : this.state.idprontuario,
-            idmedico: this.state.idmedico,
-            datahora : this.state.dataconsulta,
-            descricao: this.state.descricao
+            IdProntuario : this.state.idprontuario,
+            IdMedico: this.state.idmedico,
+            DataHora : this.state.dataconsulta,
+            Descricao: this.state.descricao
         },{headers : {'Authorization': bearer}})
 
         .then(data => {
@@ -56,17 +59,27 @@ class ConsultasAdmin extends Component {
         .catch(erro => {console.log(erro)})
     }
 
-    listaconsultas(event){
-        event.preventDefault();
-
+    listaconsultas(){
         var bearer = 'Bearer ' + localStorage.getItem("usuario-Spmedgroup");
 
         Axios.get("http://localhost:5000/api/consultas", {headers : {'Authorization' : bearer}})
 
-        .then(resposta => resposta.json())
-        .then(data => this.setState({lista : data}))
-        .catch((erro) => console.log(erro))
-        
+        .then((response) => {
+            response = this.setState({lista: response.data})
+        })
+        .catch((erro) => console.log(erro))  
+
+    //     fetch("http://localhost:5000/api/consultas",
+    //         {
+    //            method: 'GET',
+    //            headers: {
+    //              "Content-Type" : "application/json",
+    //              "Authorization" :  'Bearer ' + localStorage.getItem("usuario-Spmedgroup")
+    //            }   
+    //         })
+    //        .then(resposta => resposta.json())
+    //        .then(data => this.setState({lista : data}))
+    //        .catch(erro => console.log(erro))
     }
 
     componentDidMount(){
@@ -106,19 +119,21 @@ class ConsultasAdmin extends Component {
                                     <th>Id Medico</th>
                                     <th>Data</th>
                                     <th>Descricao</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
 
                             <tbody>
                                 {
-                                    this.state.lista.map( consulta => {
+                                    this.state.lista.map( function(consulta) {
                                         return(
                                             <tr key={consulta.id}>
                                                 <td>{consulta.id}</td>
-                                                <td>{consulta.idprontuario}</td>
-                                                <td>{consulta.idmedico}</td>
-                                                <td>{consulta.data}</td>
+                                                <td>{consulta.idProntuario}</td>
+                                                <td>{consulta.idMedico}</td>
+                                                <td>{consulta.dataHora}</td>
                                                 <td>{consulta.descricao}</td>
+                                                <td>{consulta.status}</td>
                                             </tr>
                                         )
                                     })

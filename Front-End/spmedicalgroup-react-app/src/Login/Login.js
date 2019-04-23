@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 
 import Axios from 'axios'
+import { parse } from 'path';
+import { parseJwt } from '../services/auth';
 
 class Login extends Component{
     constructor(){
@@ -31,7 +33,14 @@ class Login extends Component{
             if(data.status === 200){
                 console.log(data);
                 localStorage.setItem("usuario-Spmedgroup", data.data.token);
-                this.props.history.push("/homeadmin");
+                console.log(parseJwt().Role);
+                if(parseJwt().Role === "Administrador"){
+                    this.props.history.push("/homeadmin");
+                }else if(parseJwt().Role === "Medico"){
+                    this.props.history.push("/consultasmedico")
+                }else if(parseJwt().Role === "Paciente"){
+                    this.props.history.push("/consultaspaciente")
+                }
             }else{
                 alert('Email ou senha inválido')
             }
