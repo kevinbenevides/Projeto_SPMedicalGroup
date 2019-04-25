@@ -8,6 +8,7 @@ import HomeAdmin from './Home/HomeAdmin'
 import ConsultasAdmin from './Consultas/ConsultasAdmin'
 import ConsultasMedico from './Consultas/ConsultasMedico'
 import ConsultasPaciente from './Consultas/ConsultasPaciente'
+import Usuario from './Usuarios/Usuarios'
 import { UsuarioAutenticado } from './services/auth'
 import * as serviceWorker from './serviceWorker';
 import {parseJwt} from './services/auth';
@@ -58,6 +59,7 @@ const routing = (
             <PermissaoComum path="/consultaspaciente" component={ConsultasPaciente}/>
             <PermissaoMedico path="/consultasmedico" component={ConsultasMedico}/>
             <PermissaoAdmin path="/homeadmin" component={HomeAdmin}/>
+            <PermissaoAdmin path="/usuarios" component={Usuario}/>
         </Switch>
     </div>
 </Router>

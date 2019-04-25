@@ -12,6 +12,7 @@ class HomeAdmin extends Component {
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/login">Login</Link></li>
                             <li><Link to="/consultasadmin">Consultas</Link></li>
+                            <li><Link to="/usuarios">Usuarios</Link></li>
                         </ul>
                     </nav>
                     <div>
