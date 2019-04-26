@@ -10,9 +10,10 @@ class HomeAdmin extends Component {
                         <img src="#" />
                         <ul>
                             <li><Link to="/">Home</Link></li>
-                            <li><Link to="/login">Login</Link></li>
                             <li><Link to="/consultasadmin">Consultas</Link></li>
                             <li><Link to="/usuarios">Usuarios</Link></li>
+                            <li><Link to="/medicos">Medicos</Link></li>
+                            <li><Link to="/login" style={{color:"red", textDecoration:"none"}}>Deslogar</Link></li>
                         </ul>
                     </nav>
                     <div>

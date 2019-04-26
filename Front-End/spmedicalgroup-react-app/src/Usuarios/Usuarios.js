@@ -20,8 +20,6 @@ class Usuarios extends Component{
     }
 
     componentDidMount(){
-        
-        var bearer = 'Bearer ' + localStorage.getItem("usuario-Spmedgroup")
 
         apiService
 
@@ -76,9 +74,9 @@ class Usuarios extends Component{
             <main>
                 <form onSubmit={this.cadastrarUsuario}>
                     <p>Insira um Email:</p>
-                    <input type="text" value={this.state.emailusuario} onChange={this.atualizaEstadoEmail}/>
+                    <input type="text" value={this.state.email} onChange={this.atualizaEstadoEmail}/>
                     <p>Insira uma Senha:</p>
-                    <input type="password" value={this.state.senhausuario} onChange={this.atualizaEstadoSenha}/>
+                    <input type="password" value={this.state.senha} onChange={this.atualizaEstadoSenha}/>
                     <p>Selecione um tipo de usuario:</p>
                     <select value={this.state.idtipoUsuario} onChange={this.atualizaEstadoIdtipoUsuario.bind(this)}>
                     <option>Selecione</option>

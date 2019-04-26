@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import './Login.css'
 import Axios from 'axios'
 import { parse } from 'path';
 import { parseJwt } from '../services/auth';
@@ -37,9 +37,9 @@ class Login extends Component{
                 if(parseJwt().Role === "Administrador"){
                     this.props.history.push("/homeadmin");
                 }else if(parseJwt().Role === "Medico"){
-                    this.props.history.push("/consultasmedico")
+                    this.props.history.push("/homemedico")
                 }else if(parseJwt().Role === "Paciente"){
-                    this.props.history.push("/consultaspaciente")
+                    this.props.history.push("/homepaciente")
                 }
             }else{
                 alert('Email ou senha inválido')
