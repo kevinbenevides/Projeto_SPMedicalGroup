@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import "./Home.css"
-import login from '../assets/img/icon-login.png'
+import logo from '../assets/img/icon-login.png'
 import background from '../assets/img/background.jpg'
 class HomeAdmin extends Component {
     render() {
@@ -10,7 +10,7 @@ class HomeAdmin extends Component {
                 <header className="header">
                     <div className=" flexbox wrapper">
                         <div className="header__image">
-                            <img src={login} alt="Logo do WeWish!" />
+                            <img src={logo} alt="Logo do SpMedicalGroup!" />
                         </div>
                         <nav className="header__navbar">
                             <ul className="header__list">
@@ -26,9 +26,11 @@ class HomeAdmin extends Component {
                 </header>
                 <main>
                     {/* Section com imagem de fundo */}
-                    <section className="main__section" style={{}}>
-                        {/*<img className="main__section-item" src={background}/> */}
+                    <section className="main__section">
                         <div className="main__section-item">
+                        <img  src={logo}/>
+                        <h2>Sp Medical Group</h2>
+                        <p>Sempre cuidando de você...</p>
                         </div>
                     </section>
 

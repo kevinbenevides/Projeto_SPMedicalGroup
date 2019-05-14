@@ -15,6 +15,7 @@
 .header__image img{
   width: 40px;
   height: auto;
+  margin-bottom: 3px;
 }
 
 .header__list-item,
@@ -51,7 +52,7 @@
   background-size:100%;
   position: absolute;
   width: 100%;
-  height: 800px;
+  height: 600px;
 }
 
 .main__section img{
@@ -63,4 +64,26 @@
   background-color: rgba(72, 87, 255, 0.582);
   width: 100%;
   height: 100%;
+}
+
+.main__section-item img {
+  width: 186px;
+  height: 218px;
+  margin-left: 21%;
+  margin-top: 8%;
+  transform: translateY(25px);
+}
+
+.main__section-item h2{
+  font-size: 46pt;
+  color: white;
+  display: inline;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.main__section-item p{
+  font-size: 20pt;
+  color: white;
+  font-family:Arial, Helvetica, sans-serif;
+  margin-left: 42%;
 }
