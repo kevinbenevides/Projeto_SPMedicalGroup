@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import "./Home.css"
+import "../assets/css/navbar.css"
 import logo from '../assets/img/icon-login.png'
 import background from '../assets/img/background.jpg'
 class HomeAdmin extends Component {

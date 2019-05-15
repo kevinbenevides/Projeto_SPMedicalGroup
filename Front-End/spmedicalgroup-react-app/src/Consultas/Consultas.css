@@ -1,0 +1,81 @@
+h2{
+    text-align: center;
+}
+
+.main__consultas{
+  background-image: url('../assets/img/background2.jpg');
+  background-size:100%;
+  position: absolute;
+  width: 100%;
+  height: 92.5%;
+}
+
+.main-div__consultas{
+    background-color: rgba(72, 255, 206, 0.377);
+    width: 100%;
+    height: 100%;
+}
+
+.main-div__sections{    
+    display: flex;
+    justify-content: space-around;
+}
+
+.main-div__consultas section{
+    margin-top: 3%;
+    background-color: white;
+    width: 40%;
+    border-radius: 20px;
+    padding: 2%;
+    box-shadow: 5px 5px 11px #000;
+}
+
+.section__form{
+    text-align: center;
+}
+
+.section__form p{
+    margin-right: 9%;
+}
+
+.section__form input{
+    border-radius: 30px;
+    height: 14px;
+    border: 1px black solid;
+    padding: 8px;
+    text-align: center;
+}
+
+.section__form textarea{
+    border-radius: 12px;
+    border: 1px solid black;
+    padding: 8px;
+}
+
+.section__form button{
+    border: 1px solid black;
+    border-radius: 20px;
+    height: 30px;
+    width: 17%;
+    margin-top: 3%;
+    background-color: rgb(72, 87, 255);
+    color: #FFF;
+}
+
+.table__consultas {
+    text-align: center;
+    border-radius: 5px;
+}
+.table__consultas tr:nth-child(even){
+    background-color: rgba(72, 255, 206);
+}
+
+.table__consultas tr:hover {background-color: #ddd;}
+
+.table__consultas th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }
