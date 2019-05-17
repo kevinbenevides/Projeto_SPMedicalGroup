@@ -15,7 +15,7 @@ class HomePaciente extends Component{
                         <nav className="header__navbar">
                             <ul className="header__list">
                                 <li className="header__list-item" style={{borderLeft: "none"}}><Link to="/">Home</Link></li>
-                                <li className="header__list-item"><Link to="/consultasmedico">Consultas</Link></li>
+                                <li className="header__list-item"><Link to="/consultaspaciente">Consultas</Link></li>
                                 <li className="header__list-item"><Link to="/login" style={{ color: "red", textDecoration: "none" }}>Deslogar</Link></li>
                             </ul>
                         </nav>

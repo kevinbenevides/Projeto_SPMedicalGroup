@@ -2,7 +2,7 @@ h2{
     text-align: center;
 }
 
-.main__consultas{
+.main__usuarios{
   background-image: url('../assets/img/background2.jpg');
   background-size:100%;
   position: absolute;
@@ -10,7 +10,7 @@ h2{
   height: 92.5%;
 }
 
-.main-div__consultas{
+.main-div__usuarios{
     background-color: rgba(72, 255, 206, 0.377);
     width: 100%;
     height: 100%;
@@ -21,7 +21,7 @@ h2{
     justify-content: space-around;
 }
 
-.main-div__consultas section{
+.main-div__usuarios section{
     margin-top: 3%;
     background-color: white;
     width: 40%;
@@ -46,35 +46,38 @@ h2{
     text-align: center;
 }
 
-.section__form select{
+.section__form textarea{
     border-radius: 12px;
     border: 1px solid black;
-    outline-style: none;
+    padding: 8px;
 }
 
 .section__form button{
     border: 1px solid black;
     border-radius: 20px;
     height: 30px;
-    width: 19%;
+    width: 17%;
     margin-top: 3%;
     background-color: rgb(72, 87, 255);
     color: #FFF;
     cursor: pointer;
 }
 
-.table__consultas {
+.table__usuarios {
     text-align: center;
-    border-radius: 5px;
+    margin-left: 4%;
 }
-.table__consultas tr:nth-child(even){
+.table__usuarios tr:nth-child(even){
     background-color:  #4CAF50;
-    color: #fff;
+    color: #fff
 }
 
-.table__consultas tr:hover {background-color: #ddd;}
+.table__usuarios tr:hover {
+    background-color: #ddd;
+}
 
-.table__consultas th {
+.table__usuarios th {
+    text-align: center;
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
