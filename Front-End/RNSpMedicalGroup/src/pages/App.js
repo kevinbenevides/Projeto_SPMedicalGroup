@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, TextInput, AsyncStorage } from 'react-native';
-import { TouchableOpacity } from "react-native-gesture-handler";
+import {StyleSheet, Text, View, TextInput, AsyncStorage, TouchableOpacity } from 'react-native';
 import api from "../services/api"
+import jwt from 'jwt-decode'
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email="",
-      senha="",
-      erro: ""
+      senha=""
     }
   }
 
@@ -19,18 +18,18 @@ export default class App extends Component {
         email: this.state.email,
         senha: this.state.senha
       }
-    )
-    try {
+    );
+    // try {
       const token = respostaLogin.data.token;
       AsyncStorage.setItem('userToken', token)
-      var decode = jwt(token).Role
-      if(decode.Role === "Medico"){
-        this.props.navigation.navigate("MedicoNavigation")
-      }
+      // var decode = jwt(token).Role
+      // if(decode.Role === "Medico"){
+      //   this.props.navigation.navigate("MedicoNavigation")
+      // }
       this.props.navigation.navigate("MainNavigation")
-    } catch{
-      this.setState({erro: respostaLogin.data.Usuario})
-    }
+    // } catch{
+    //   this.setState({erro: respostaLogin.data.Usuario})
+    // }
   }
 
   render() {
@@ -41,14 +40,12 @@ export default class App extends Component {
         <TextInput
           placeholder="Email"
           textContentType='name'
-          onChange={email => this.setState(email)}
-          value={this.state.email} />
+          onChange={email => this.setState(email)} />
         <Text>Senha:</Text>
         <TextInput
           placeholder="Senha"
           textContentType='password' 
-          onChange={senha => this.setState(senha)}
-          value={this.state.senha}/>
+          onChange={senha => this.setState(senha)}/>
         <TouchableOpacity
           onPress={this._logando}
           activeOpacity={0.5}
