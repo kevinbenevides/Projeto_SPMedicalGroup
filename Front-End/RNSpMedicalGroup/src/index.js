@@ -3,13 +3,15 @@ import {
     createAppContainer,
     createStackNavigator,
     createSwitchNavigator
-} from "react-navigation";
+} from 'react-navigation';
 
 import App from "./pages/App"
-import ConsultaMedico from './pages/ConsultaMedico'
+import Consultas from './pages/Consultas'
 
-const MedicoNavigation = createStackNavigator(
-    ConsultaMedico
+const MainNavigation = createStackNavigator(
+    {
+        Consultas
+    }
 )
 
 const AuthStack = createStackNavigator(
@@ -22,9 +24,10 @@ export default createAppContainer(
     createSwitchNavigator(
         {
             AuthStack,
-            MedicoNavigation
-        },{
+            MainNavigation
+        },
+        {
             initialRouteName: "AuthStack"
         }
     )
-)
+)                                                                           
