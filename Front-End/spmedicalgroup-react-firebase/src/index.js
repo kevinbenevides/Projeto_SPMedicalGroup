@@ -2,9 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Localizacao from '../src/pages/Localizacao'
+import Login from '../src/pages/Login'
+import App from '../src/App'
 import * as serviceWorker from './serviceWorker';
+import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
 
-ReactDOM.render(<Localizacao />, document.getElementById('root'));
+const routing =(
+    <Router>
+        <Switch>
+            <Route path="/login" component={Login}/>
+            <Route path="/localizacao" component={Localizacao}/>
+        </Switch>
+    </Router>
+)
+
+ReactDOM.render(<App/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

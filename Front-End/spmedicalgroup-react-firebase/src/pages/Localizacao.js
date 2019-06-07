@@ -15,6 +15,8 @@ export default class Localizacao extends Component {
             doenca_paciente: "",
             listaUsuarios: []
         }
+
+        this.logout.bind(this)
     }
 
     // componentDidMount(){
@@ -34,6 +36,9 @@ export default class Localizacao extends Component {
     //         }  )
     //     })
     // }
+    logout(){
+        firebase.auth().signOut();   
+       }
 
     atualizaEstado(event) {
         this.setState({ [event.target.name]: event.target.value });
@@ -107,12 +112,21 @@ export default class Localizacao extends Component {
                 })
         }
 
+        var locations = [
+            ["Bondi Beach", -33.890542, 151.274856, 4],
+            ["Coogee Beach", -33.923036, 151.259052, 5],
+            ["Cronulla Beach", -34.028249, 151.157507, 3],
+            ["Manly Beach", -33.80010128657071, 151.28747820854187, 2],
+            ["Maroubra Beach", -33.950198, 151.259302, 1]
+        ];
+
+
     }
     render() {
         return (
-            <main>
-
-                <section>
+            <main style={{ backgroundColor: "#333" }}>
+                <button onClick={this.logout}>Logout</button>
+                <section style={{ backgroundColor: "#fff", borderRadius: 25, width: "25%", padding: 10, marginLeft: "10%", marginTop: 10 }}>
                     <div>
                         <form onSubmit={this.cadastraLocalizacao.bind(this)}>
                             {/* <p>Selecione um usuário para efetuar o cadastro:</p>
@@ -127,7 +141,7 @@ export default class Localizacao extends Component {
                             } )}
                         </select> */}
 
-                            <p>Insira um Nome para Usuário:</p>
+                            <p>Insira um Nome para o Paciente:</p>
                             <input name="nome" placeholder="Ex: Kevin" type="text" value={this.state.nome} onChange={this.atualizaEstado.bind(this)} />
 
                             <p>Insira a idade do paciente: </p>
@@ -135,9 +149,6 @@ export default class Localizacao extends Component {
 
                             <p>Insira a Doença do paciente:</p>
                             <input name="doenca_paciente" placeholder="Ex: Varíola" type="text" value={this.state.doenca_paciente} onChange={this.atualizaEstado.bind(this)} />
-
-                            <p>Insira a Especialidade do Médico:</p>
-                            <input name="especialidade_medico" placeholder="Ex: Psiquiatra" type="text" value={this.state.especialidade_medico} onChange={this.atualizaEstado.bind(this)} />
 
                             <p>Insira aqui a Latitude:</p>
                             <input name="Latitude" placeholder="Ex: -23.5345442" type="text" value={this.state.Latitude} onChange={this.atualizaEstado.bind(this)} required />
@@ -150,26 +161,26 @@ export default class Localizacao extends Component {
                     </div>
 
                 </section>
-                <section>
-                        <div>
-                            <form onSubmit={this.cadastraEspecialidade.bind(this)}>
+                <section style={{ backgroundColor: "#fff", borderRadius: 25, width: "25%", padding: 10, marginLeft: "10%", marginTop: 10 }}>
+                    <div>
+                        <form onSubmit={this.cadastraEspecialidade.bind(this)}>
                             <p>Insira um Nome para o Médico:</p>
-                            <input name="nome" 
-                            placeholder="Ex: Kevin" 
-                            type="text" 
-                            value={this.state.nome} 
-                            onChange={this.atualizaEstado.bind(this)} />
-                                
+                            <input name="nome"
+                                placeholder="Ex: Kevin"
+                                type="text"
+                                value={this.state.nome}
+                                onChange={this.atualizaEstado.bind(this)} />
+
                             <p>Insira a Especialidade do Médico:</p>
-                            <input name="especialidade_medico" 
-                            placeholder="Ex: Psiquiatra" 
-                            type="text" 
-                            value={this.state.especialidade_medico} 
-                            onChange={this.atualizaEstado.bind(this)} />
-                            
+                            <input name="especialidade_medico"
+                                placeholder="Ex: Psiquiatra"
+                                type="text"
+                                value={this.state.especialidade_medico}
+                                onChange={this.atualizaEstado.bind(this)} />
+
                             <button type="submit">Enviar</button>
-                            </form>
-                        </div>
+                        </form>
+                    </div>
                 </section>
             </main>
 
