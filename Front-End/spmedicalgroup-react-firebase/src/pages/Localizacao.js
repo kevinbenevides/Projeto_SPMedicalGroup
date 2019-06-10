@@ -48,6 +48,10 @@ export default class Localizacao extends Component {
         this.setState({ idusuario: event.target.value })
     }
 
+    componentDidMount(){
+        this._listarPacientes();
+    }
+
     cadastraLocalizacao(event) {
         event.preventDefault()
 
@@ -83,6 +87,24 @@ export default class Localizacao extends Component {
         }
 
     }
+    
+    _listarPacientes(){
+        firebase.firestore().collection("Usuarios")
+        .onSnapshot((usuarios) => {
+            let usuariosArray = []
+
+            usuarios.forEach((usuario) => {
+                usuariosArray.push({
+                    nome: usuario.data().nome,
+                    Idade: usuario.data().Idade_Paciente,
+                    doenca_paciente: usuario.data().Doenca_Paciente,
+                    latitude: usuario.data().Latitude,
+                    longitude: usuario.data().Longitude
+                })
+            })
+            this.setState({listaUsuarios: usuariosArray})
+        })
+    }
 
     cadastraEspecialidade(event) {
         event.preventDefault()
@@ -111,17 +133,8 @@ export default class Localizacao extends Component {
                     console.log('tag', erro)
                 })
         }
-
-        var locations = [
-            ["Bondi Beach", -33.890542, 151.274856, 4],
-            ["Coogee Beach", -33.923036, 151.259052, 5],
-            ["Cronulla Beach", -34.028249, 151.157507, 3],
-            ["Manly Beach", -33.80010128657071, 151.28747820854187, 2],
-            ["Maroubra Beach", -33.950198, 151.259302, 1]
-        ];
-
-
     }
+
     render() {
         return (
             <main style={{ backgroundColor: "#333" }}>
@@ -180,6 +193,22 @@ export default class Localizacao extends Component {
 
                             <button type="submit">Enviar</button>
                         </form>
+                    </div>
+                </section>
+
+                <section>
+                    <div>
+                        <ul>
+                            {
+                                this.state.listaUsuarios.map((paciente, key) => {
+                                    return(
+                                        <li key={key} style={{color:"#fff"}}>
+                                        {paciente.Nome} - {paciente.Idade} - {paciente.doenca_paciente} - {paciente.latitude} - {paciente.longitude}
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ul>
                     </div>
                 </section>
             </main>
