@@ -24,7 +24,7 @@ class ConsultasMedico extends Component{
 
         var bearer = 'Bearer ' + localStorage.getItem("usuario-Spmedgroup");
 
-        Axios.get("http://localhost:5000/api/consultas", {headers: {'Authorization' : bearer}})
+        Axios.get("https://projetospmedicalgroupwebapi.azurewebsites.net/api/consultas", {headers: {'Authorization' : bearer}})
 
         
         .then((response) => {

@@ -48,7 +48,7 @@ class ConsultasAdmin extends Component {
 
         var bearer = 'Bearer ' + localStorage.getItem("usuario-Spmedgroup");
 
-        Axios.post("http://localhost:5000/api/consultas", {
+        Axios.post("https://projetospmedicalgroupwebapi.azurewebsites.net/api/consultas", {
             IdProntuario: this.state.idprontuario,
             IdMedico: this.state.idmedico,
             DataHora: this.state.dataconsulta,
@@ -66,7 +66,7 @@ class ConsultasAdmin extends Component {
     listaconsultas() {
         var bearer = 'Bearer ' + localStorage.getItem("usuario-Spmedgroup");
 
-        Axios.get("http://localhost:5000/api/consultas", { headers: { 'Authorization': bearer } })
+        Axios.get("https://projetospmedicalgroupwebapi.azurewebsites.net/api/consultas", { headers: { 'Authorization': bearer } })
 
             .then((response) => {
                 response = this.setState({ lista: response.data })

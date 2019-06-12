@@ -3,7 +3,7 @@ import axios from 'axios';
 //Serviço generico para fazer as chamadas para api
 export default {
     call(endpoint) {
-        let urlApi = `http://localhost:5000/api/${endpoint}`;
+        let urlApi = `https://projetospmedicalgroupwebapi.azurewebsites.net/api/${endpoint}`;
         let token = localStorage.getItem("usuario-Spmedgroup");
 
         return {

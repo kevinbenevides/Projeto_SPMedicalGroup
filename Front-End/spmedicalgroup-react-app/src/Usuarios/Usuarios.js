@@ -58,7 +58,7 @@ class Usuarios extends Component {
 
         var bearer = 'Bearer ' + localStorage.getItem("usuario-Spmedgroup");
 
-        Axios.post("http://localhost:5000/api/usuarios", {
+        Axios.post("https://projetospmedicalgroupwebapi.azurewebsites.net/api/usuarios", {
             Email: this.state.email,
             Senha: this.state.senha,
             IdTipoUsuario: this.state.idtipoUsuario

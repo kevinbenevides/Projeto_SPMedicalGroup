@@ -105,6 +105,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         padding: 15,
         marginVertical: 5,
+        borderRadius: 15,
         shadowOffset: {
             width: 14, height: 14
         },
